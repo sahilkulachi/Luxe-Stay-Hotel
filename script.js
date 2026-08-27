@@ -1,14 +1,14 @@
-// Luxe Stay Hotel - Booking System
-
 const bookingForm = document.querySelector("form");
 
-bookingForm.addEventListener("submit", function (event) {
+bookingForm.addEventListener("submit", function(event) {
     event.preventDefault();
 
     const name = bookingForm.querySelector('input[type="text"]').value;
     const email = bookingForm.querySelector('input[type="email"]').value;
-    const checkIn = bookingForm.querySelectorAll('input[type="date"]')[0].value;
-    const checkOut = bookingForm.querySelectorAll('input[type="date"]')[1].value;
+    const dates = bookingForm.querySelectorAll('input[type="date"]');
+
+    const checkIn = dates[0].value;
+    const checkOut = dates[1].value;
 
     if (!name || !email || !checkIn || !checkOut) {
         alert("براہِ کرم تمام معلومات مکمل کریں۔");
@@ -21,19 +21,18 @@ bookingForm.addEventListener("submit", function (event) {
     }
 
     alert(
-        "Thank you, " + name +
-        "! Your booking request has been received."
+        "🎉 Booking Request Sent!\n\n" +
+        "Thank you, " + name + "!\n" +
+        "We have received your booking request."
     );
 
     bookingForm.reset();
 });
 
-
-// Book Room buttons
 const roomButtons = document.querySelectorAll(".room-card button");
 
-roomButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
+roomButtons.forEach(function(button) {
+    button.addEventListener("click", function() {
         document.querySelector("#booking").scrollIntoView({
             behavior: "smooth"
         });
