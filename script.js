@@ -1,3 +1,4 @@
+alert("JavaScript connected!");
 const bookingForm = document.querySelector("form");
 
 bookingForm.addEventListener("submit", function(event) {
